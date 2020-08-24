@@ -1,9 +1,43 @@
-{
-    ".jpeg": "/home/pramodkadam/Downloads/Images",
-    ".jpg": "/home/pramodkadam/Downloads/Images",
-    ".pdf": "/home/pramodkadam/Documents/PDF Documents/Downloaded",
-    ".png": "/home/pramodkadam/Downloads/Images",
-    ".txt": "/home/pramodkadam/Documents/txt",
-    ".vsix": "/home/pramodkadam/Downloads/VS Code Extensions",
-    ".zip": "/home/pramodkadam/Downloads/ZIP files"
-}
+[
+    {
+        "type":[".ai", ".bmp", ".gif", ".ico", ".jpeg", ".jpg", ".png", ".ps", ".psd", ".svg", ".tif", ".tiff"],
+        "target_location":"/home/pramodkadam/Downloads/images"
+    },
+    {
+        "type":[".7z", ".arj", ".deb", ".pkg", ".rar", ".rpm", ".tar.gz", ".z", ".zip"],
+        "target_location":"/home/pramodkadam/Downloads/compressed files"
+    },
+    {
+        "type":[".csv", ".dat", ".db", ".dbf", ".log", ".mdb", ".sav", ".sql", ".tar", ".xml"],
+        "target_location":"/home/pramodkadam/Downloads/data files"
+    },
+    {
+        "type":[".key", ".odp", ".pps", ".ppt", ".pptx"],
+        "target_location":"/home/pramodkadam/Downloads/office files"
+    },
+    {
+        "type":[".doc", ".docx", ".odt", ".pdf", ".rtf", ".tex", ".txt", ".wpd"],
+        "target_location":"/home/pramodkadam/Downloads/document"
+    },
+    {
+        "type":[ ".c", ".class", ".cpp", ".cs", ".h", ".java", ".pl", ".sh", ".swift", ".vb", ".py", ".ipynb" ],
+        "target_location":"/home/pramodkadam/Downloads/program"
+    },
+    {
+        "type":[ ".ods", ".xls", ".xlsm", ".xlsx" ],
+        "target_location":"/home/pramodkadam/Downloads/spreadsheet"
+    },
+    {
+        "type":[ ".aif", ".cda", ".mid", ".midi", ".mp3", ".mpa", ".ogg", ".wav", ".wma", ".wpl"  ],
+        "target_location":"/home/pramodkadam/Downloads/audio files"
+    },
+    {
+        "type":[ ".3g2", ".3gp", ".avi", ".flv", ".h264", ".m4v", ".mkv", ".mov", ".mp4", ".mpg", ".mpeg", ".rm", ".swf", ".vob", ".wmv"   ],
+        "target_location":"/home/pramodkadam/Downloads/video files"
+    }
+]
+
+
+
+
+
