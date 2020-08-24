@@ -36,7 +36,7 @@ class MyHandler(FileSystemEventHandler):
             return False
 
 folder_to_track = "/home/pramodkadam/Downloads"#address of folder to track
-with open("data.json",'r') as file:
+with open("/home/pramodkadam/Workspace/git/Watchdog-Project/data.json",'r') as file:
     data_array = json.loads(file.read())
 eventHandler = MyHandler()
 observer = Observer()
