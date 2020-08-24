@@ -1,33 +1,42 @@
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler 
-import time, os, json
+from json import loads
+from os import listdir, path, mkdir, rename
+from time import sleep as sleep
+
+class files(object):
+    def __init__(self):
+        self.data_array = None
+        with open("/home/pramodkadam/Workspace/git/Watchdog-Project/data.json",'r') as file:
+            self.data_array = loads(file.read())
 
 class MyHandler(FileSystemEventHandler):
+    def __init__(self):
+        obj = files()
+        self.data_array = obj.data_array
+
     def on_created(self,event):
         # Reads the json file for address based on file extension
-        folder_destination = None
-        file_size = -1
-        while file_size != os.path.getsize(event.src_path):
-            file_size = os.path.getsize(event.src_path)
-            time.sleep(5)
+        file_size:int = -1
+        while file_size != path.getsize(event.src_path):
+            file_size = path.getsize(event.src_path)
+            sleep(5)
         try:
-            for filename in os.listdir(folder_to_track):
+            for filename in listdir(folder_to_track):
                 try:
-                    name, ext = os.path.splitext(filename)
-                    found = False
-                    address = None
-                    for record in data_array:
+                    name, ext = path.splitext(filename)
+                    found:bool = False
+                    for record in self.data_array:
                         if ext in record["type"]:
                             address = record["target_location"]
                             new_dest = record["target_location"] + "/" + filename
                             found = True
                             break
                     if found:
-                        src = folder_to_track + "/" + filename
-                        if not os.path.exists(address):
-                            
-                            os.mkdir(address)
-                        os.rename(src,new_dest)
+                        src:str = folder_to_track + "/" + filename
+                        if not path.exists(address):
+                            mkdir(address)
+                        rename(src,new_dest)
                 except Exception as e:
                     print(e)
                     continue
@@ -36,16 +45,13 @@ class MyHandler(FileSystemEventHandler):
             return False
 
 folder_to_track = "/home/pramodkadam/Downloads"#address of folder to track
-with open("/home/pramodkadam/Workspace/git/Watchdog-Project/data.json",'r') as file:
-    data_array = json.loads(file.read())
 eventHandler = MyHandler()
 observer = Observer()
-observer.schedule(eventHandler,folder_to_track,recursive=True)
-
+observer.schedule(eventHandler,folder_to_track,recursive=False)
 observer.start()
 try:
     while True:
-        time.sleep(20)
+        sleep(20)
 except KeyboardInterrupt:
     observer.stop()
 observer.join()
